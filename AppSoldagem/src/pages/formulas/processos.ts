@@ -1,3 +1,4 @@
 export let processos = {
     tipoOp: ''
+
 }

@@ -32,6 +32,7 @@ export class TipoOperacaoPage {
 
   public processos = processos;
   public cFormulas = chanfro;
+  
   public escolhaOp2;
 
   constructor(
@@ -121,7 +122,7 @@ export class TipoOperacaoPage {
 
     else {
       this.formulas();
-      this.navCtrl.push('VariaveisEntradaPage');
+      this.navCtrl.push('TipoProcessoPage');
     }
 
 

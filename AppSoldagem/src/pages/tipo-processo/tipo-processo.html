@@ -1,0 +1,81 @@
+<ion-header>
+
+  <ion-navbar color="energized">
+    
+    <ion-title>Tipo de Processo</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="fondo">
+
+
+
+  <ion-card>
+    <ion-list>
+      <ion-list-header color="mostaza" class="color_escolha">Selecione o Metodo</ion-list-header>
+    </ion-list>
+
+    <ion-item>
+      <ion-icon item-start name="md-hammer"></ion-icon>
+      <h2>Eletrodo Revestido</h2>
+    </ion-item>
+
+    <img (click)="verEr()" src="assets/fots/EletrodoRevestido.jpg">
+
+    <ion-card-content text-justify>
+      <p>Também conhecida como soldagem manual a arco elétrico (MMA),
+        é um processo manual de soldagem que é realizado com o calor de um arco elétrico
+        mantido entre a extremidade de um eletrodo metálico revestido e a peça de trabalho</p>
+    </ion-card-content>
+
+  </ion-card>
+
+
+
+  <ion-card>
+    <ion-item>
+      <ion-icon item-start name="ios-barcode"></ion-icon>
+      <h2>Mig/Mag</h2>
+    </ion-item>
+
+    <img (click)="verMm()" src="assets/fots/mig-mag.jpg">
+
+    <ion-card-content text-justify>
+      <p>Trata-se de um processo de soldagem por arco elétrico entre a peça e o consumível em forma de arame,
+        eletrodo não revestido, fornecido por um alimentador contínuo, realizando uma união de materiais metálicos
+        pelo aquecimento e fusão.</p>
+    </ion-card-content>
+
+    <ion-card-content text-justify>
+      <p>O processo MIG/MAG é aplicável à soldagem da maioria dos metais utilizados na indústria como os aços, o
+        alumínio,
+        aços inoxidáveis, cobre e vários outros.</p>
+    </ion-card-content>
+  </ion-card>
+
+
+
+
+  <ion-card>
+    <ion-item>
+      <ion-icon item-start name="ios-color-wand"></ion-icon>
+      <h2>Arame Tubular</h2>
+    </ion-item>
+
+    <img (click)="verAt()" src="assets/fots/ArameTubular.jpg">
+
+    <ion-card-content text-justify>
+      <p>Os arames tubulares foram desenvolvidos para atender
+        às necessidades das empresas de aumentar a competitividade e de reduzir custos. </p>
+
+      <br>
+      <p>A combinação do fluxo contido no interior do arame aliada à proteção gasosa externa produz soldas de
+        alta qualidade, arco estável e baixo nível de respingos. A composição química do fluxo também influencia nas
+        propriedades mecânicas do metal depositado. </p>
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>
