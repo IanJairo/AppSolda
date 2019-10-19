@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-//import { TipoOperacaoPage } from '../tipo-operacao/tipo-operacao';
+import { TipoOperacaoPage } from '../tipo-operacao/tipo-operacao';
 
 
 @Component({
@@ -19,7 +19,7 @@ export class HomePage {
   }
 
   onSeguinte() {
-    //this.navCtrl.push(TipoOperacaoPage);
+    this.navCtrl.push(TipoOperacaoPage);
 
   }
 

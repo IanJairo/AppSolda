@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-navbar color="energized">
+    <ion-title>Operações</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="fondo">
+
+
+  <ion-card>
+    <ion-list color="white">
+      <ion-list-header color="azul">
+        Qual operação deseja fazer?
+      </ion-list-header>
+      <ion-item>
+        <ion-label>Metalurgia</ion-label>
+        <ion-checkbox color="mostaza" [(ngModel)]='op1' (ionChange)="tipoOp()"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>Custos</ion-label>
+        <ion-checkbox color="mostaza" [(ngModel)]='op2' (ionChange)="tipoOp()"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <ion-card>
+    <ion-item>
+      <ion-label class="select">Selecione o tipo</ion-label>
+      <ion-select [(ngModel)]="chamfro" (ionChange)="escolha()" interface="popover">
+        <ion-option value="tipoV">V</ion-option>
+        <ion-option value="tipoX">X</ion-option>
+        <ion-option value="tipoK">K</ion-option>
+        <ion-option value="tipoMeioV">Meio V</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <img src={{imagem}}>
+    </ion-item>
+
+    <ion-item>
+      <ion-note color="azul" item-end>
+        {{nariz}}
+      </ion-note>
+      <ion-range min="0" max="10" pin="true" [(ngModel)]="nariz" color="azul">
+        <ion-label range-left>Nariz</ion-label>
+      </ion-range>
+    </ion-item>
+
+    <ion-item>
+      <ion-note color="azul" item-end>
+        {{fresta}}
+      </ion-note>
+      <ion-range min="0" max="10" pin="true" [(ngModel)]="fresta" color="azul">
+        <ion-label range-left>Fresta</ion-label>
+      </ion-range>
+    </ion-item>
+
+    <ion-item>
+      <ion-note color="azul" item-end>
+        {{espessura}}
+      </ion-note>
+      <ion-range min="1" max="100" pin="true" [(ngModel)]="espessura" color="azul">
+        <ion-label range-left>Espessura</ion-label>
+      </ion-range>
+    </ion-item>
+
+    <ion-item>
+      <ion-note color="azul" item-end>
+        {{angulo}}
+      </ion-note>
+      <ion-range min="0°" max="180" step="2" pin="true" step="5" [(ngModel)]="angulo" color="azul">
+        <ion-label range-left>Angulo (graus)</ion-label>
+      </ion-range>
+    </ion-item>
+
+    <ion-item>
+      <ion-note color="azul" item-end>
+        {{acabamento}}
+      </ion-note>
+      <ion-range min="0" max="10" pin="true" [(ngModel)]="acabamento" color="azul">
+        <ion-label range-left>Acabamento</ion-label>
+      </ion-range>
+    </ion-item>
+  </ion-card>
+
+  <button ion-button block color="mostaza" (click)="seg()">Seguinte</button>
+
+</ion-content>
