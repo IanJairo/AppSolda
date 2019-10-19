@@ -26,7 +26,7 @@ export class TipoProcessoPage {
   verEr() {
     this.metodo = 'Er';
     this.cons.metodo = this.metodo;
-    this.navCtrl.push('MetodoPage', {
+    this.navCtrl.push('VariaveisEntradaPage', {
       id: this.metodo,
 
       mLabel: 'Valor consumivel'
@@ -37,7 +37,7 @@ export class TipoProcessoPage {
   verMm() {
     this.metodo = 'Mm';
     this.cons.metodo = this.metodo;
-    this.navCtrl.push('MetodoPage', {
+    this.navCtrl.push('VariaveisEntradaPage', {
       id: this.metodo,
 
       mLabel: 'Custo do Gas'
@@ -48,7 +48,7 @@ export class TipoProcessoPage {
   verAt() {
     this.metodo = 'At';
     this.cons.metodo = this.metodo;
-    this.navCtrl.push('MetodoPage', {
+    this.navCtrl.push('VariaveisEntradaPage', {
       id: this.metodo,
 
       mLabel: 'Custo do Gas'

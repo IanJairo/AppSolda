@@ -1,0 +1,121 @@
+<ion-header>
+  <ion-navbar color="energized">
+    <ion-title>Variaveis</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="fondo">
+  <ion-card *ngIf="mLabel == 'Valor consumivel'">
+
+    <ion-list>
+      <ion-list-header color="mostaza">Insira seus valores:</ion-list-header>
+      <ion-item>
+        <ion-icon name="ios-analytics" item-start></ion-icon>
+        <ion-input type="number" [(ngModel)]="numPass" placeholder="Número de passes"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+
+      <ion-item>
+        <ion-icon name="md-hand" item-start></ion-icon>
+        <ion-input type="number" [(ngModel)]="mObra" placeholder="Mão de Obra"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-icon name="ios-hammer" item-start></ion-icon>
+        <ion-input type="number" [(ngModel)]="comCord" placeholder="Comprimento do Cordão">
+        </ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-icon name="ios-planet" item-start></ion-icon>
+        <ion-input type="number" [(ngModel)]="d" placeholder="Diametro"></ion-input>
+        <button ion-button clear color="energized" item-end>Mais</button>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-icon  name='{{mLogo}}' item-start></ion-icon>
+        <ion-input type="number" [(ngModel)]="valor" placeholder='Valor consumivel'></ion-input>
+      </ion-item>
+    </ion-list>
+
+
+    <ion-list>
+      <ion-item>
+        <ion-icon name="ios-card" item-start></ion-icon>
+        <ion-input type="number" [(ngModel)]="valInves" placeholder="Valor do investimento">
+        </ion-input>
+      </ion-item>
+    </ion-list>
+
+  </ion-card>
+
+
+
+
+
+  <ion-card *ngIf="mLabel == 'Custo do Gas'">
+
+    <ion-list>
+      <ion-list-header color="mostaza">Insira seus valores:</ion-list-header>
+      <ion-item>
+        <ion-icon name="ios-analytics" item-start></ion-icon>
+        <ion-input type="number" [(ngModel)]="numPass" placeholder="Número de passes"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+
+      <ion-item>
+        <ion-icon name="md-hand" item-start></ion-icon>
+        <ion-input type="number" [(ngModel)]="mObra" placeholder="Mão de Obra"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-icon name="ios-hammer" item-start></ion-icon>
+        <ion-input type="number" [(ngModel)]="comCord" placeholder="Comprimento do Cordão">
+        </ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-icon name="ios-planet" item-start></ion-icon>
+        <ion-input type="number" [(ngModel)]="d" placeholder="Diametro"></ion-input>
+        <button ion-button clear color="energized" item-end>Mais</button>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-icon  name='{{mLogo}}' item-start></ion-icon>
+        <ion-input type="number" [(ngModel)]="valor" placeholder='Custo do Gas'></ion-input>
+      </ion-item>
+    </ion-list>
+
+
+    <ion-list>
+      <ion-item>
+        <ion-icon name="ios-card" item-start></ion-icon>
+        <ion-input type="number" [(ngModel)]="valInves" placeholder="Valor do investimento">
+        </ion-input>
+      </ion-item>
+    </ion-list>
+
+  </ion-card>
+
+  <button ion-button block color="mostaza" (click)="resul()">Resultados</button>
+
+
+</ion-content>

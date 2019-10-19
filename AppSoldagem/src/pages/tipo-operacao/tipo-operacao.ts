@@ -63,10 +63,10 @@ export class TipoOperacaoPage {
       let a2: number = retangulo;
       let a3: number = Evx;
       let a4: number = Evmv;
-
-
-
+      
       this.aTV = a1 + a2 + a3 + a4;
+
+      this.processos.usarChanfro = this.aTV;
 
 
 
@@ -79,7 +79,7 @@ export class TipoOperacaoPage {
 
       this.aTX = a1 + a2 + a3;
 
-
+      this.processos.usarChanfro = this.aTX;
 
     }
 
@@ -88,6 +88,7 @@ export class TipoOperacaoPage {
       let a2: number = 2 * Ekmv;
 
       this.aTK = a1 + a2;
+      this.processos.usarChanfro = this.aTK;
 
     }
 
@@ -98,6 +99,7 @@ export class TipoOperacaoPage {
       let a4: number = Ekmv
 
       this.aTmeioV = a1 + a2 + a3 + a4;
+      this.processos.usarChanfro = this.aTmeioV;
 
     }
 
