@@ -1,18 +1,27 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="energized">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>Olá Soldador!</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content class="fondo">
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <ion-card>
+    <ion-item>
+      <ion-icon name="ios-body" item-start></ion-icon>
+      <h2>Seja bem-vindo!</h2>
+    </ion-item>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+    <img src="assets/fots/SoldadorInicio.jpg">
+
+    <ion-card-content text-center *ngFor="let inicio of home">
+      <p> {{inicio.text}} </p>
+    </ion-card-content>
+  </ion-card>
+
+  <button ion-button color="mostaza" block (click)="onSeguinte()">Vamos começar</button>
+
 </ion-content>
