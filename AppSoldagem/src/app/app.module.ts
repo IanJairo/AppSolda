@@ -9,12 +9,14 @@ import { HomePage } from '../pages/home/home';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TipoOperacaoPage } from '../pages/tipo-operacao/tipo-operacao';
+import { FeedbackPage } from '../pages/feedback/feedback';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    TipoOperacaoPage
+    TipoOperacaoPage,
+    FeedbackPage
   ],
   imports: [
     BrowserModule,
@@ -24,7 +26,8 @@ import { TipoOperacaoPage } from '../pages/tipo-operacao/tipo-operacao';
   entryComponents: [
     MyApp,
     HomePage,
-    TipoOperacaoPage
+    TipoOperacaoPage,
+    FeedbackPage
   ],
   providers: [
     StatusBar,

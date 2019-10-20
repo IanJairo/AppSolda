@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar color="energized" hideBackButton>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Feedback</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="fondo">
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title>
+        Fale com a gente!
+      </ion-card-title>
+      <p>
+        Envie sua opinião sobre o aplicativo:
+      </p>
+    </ion-card-content>
+    <ion-list no-lines>
+
+      <ion-item>
+        <ion-textarea [(ngModel)]="supportMessage" rows="6" required>
+        </ion-textarea>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+
+  <button ion-button color="mostaza" block (click)="enviar()">Enviar</button>
+
+
+
+
+</ion-content>
