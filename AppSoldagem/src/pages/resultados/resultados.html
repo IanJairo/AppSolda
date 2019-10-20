@@ -1,0 +1,261 @@
+<ion-header>
+  <ion-navbar color="energized">
+    <ion-title>Resultados</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="fondo">
+  <ion-card>
+    <ion-list>
+      <ion-list-header color="azul">Custo Total</ion-list-header>
+      <ion-item>
+        <ion-note item-start>
+          Valor Total:
+        </ion-note>
+        <ion-label class="resulForm">{{ custoTotalNumber }}</ion-label>
+
+        <ion-note color="dark" item-end>
+          R$
+        </ion-note>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+
+  <ion-card>
+    <ion-list>
+      <ion-list-header color="mostaza">Manutenção e Depreciação</ion-list-header>
+      <ion-item>
+        <ion-note item-start>
+          Valor Residual:
+        </ion-note>
+        <ion-label class="resulForm">{{ valResidualNumber }}</ion-label>
+
+        <ion-note color="dark" item-end>
+          R$
+        </ion-note>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-note item-start>
+          Custo Medio de Manutenção:
+        </ion-note>
+        <ion-label class="resulForm">{{ cusMedioManuNumber }}</ion-label>
+
+        <ion-note color="dark" item-end>
+          R$
+        </ion-note>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-note item-start>
+          Custo de Depreciação:
+        </ion-note>
+        <ion-label class="resulForm">{{ cusDepreNumber }}</ion-label>
+
+        <ion-note color="dark" item-end>
+          R$
+        </ion-note>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-note item-start color="azul">
+          Custo Total da Maquina:
+        </ion-note>
+        <ion-label class="resulForm">{{ cusTotalMaquinaNumber }}</ion-label>
+
+        <ion-note color="dark" item-end>
+          R$
+        </ion-note>
+      </ion-item>
+    </ion-list>
+
+  </ion-card>
+
+
+
+  <ion-card>
+
+    <ion-list>
+      <ion-list-header color="mostaza">Energia Elétrica:</ion-list-header>
+      <ion-item>
+        <ion-note item-start>
+          Tempo de Soldagem:
+        </ion-note>
+        <ion-label class="resulForm">{{ tempoSoldaNumber }}</ion-label>
+
+        <ion-note color="dark" item-end>
+          H
+        </ion-note>
+
+      </ion-item>
+    </ion-list>
+
+
+    <ion-list>
+      <ion-item>
+        <ion-note item-start color="azul">
+          Custo Total de Energia:
+        </ion-note>
+        <ion-label class="resulForm">{{ cusTotalEnergiaNumber }}</ion-label>
+
+        <ion-note color="dark" item-end>
+          R$
+        </ion-note>
+      </ion-item>
+    </ion-list>
+
+  </ion-card>
+
+  <ion-card>
+
+    <ion-list>
+      <ion-list-header color="mostaza">Mão de Obra</ion-list-header>
+      <ion-item>
+        <ion-note item-start color="azul">
+          Custo Total Mão de Obra:
+        </ion-note>
+        <ion-label class="resulForm">{{ cusTotalmObraNumber }}</ion-label>
+
+        <ion-note color="dark" item-end>
+          R$
+        </ion-note>
+      </ion-item>
+    </ion-list>
+
+  </ion-card>
+
+  <ion-card>
+
+    <ion-list>
+      <ion-list-header color="mostaza">Consumíveis</ion-list-header>
+      <ion-item>
+        <ion-note item-start>
+          Massa do Metal depositadao:
+        </ion-note>
+        <ion-label class="resulForm">{{ mMetalDepoNumber }}</ion-label>
+
+        <ion-note color="dark" item-end>
+          Kg
+        </ion-note>
+
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-note item-start>
+          Custo do Metal Depositado:
+        </ion-note>
+        <ion-label class="resulForm">{{ cusMetalDepoNumber }}</ion-label>
+
+        <ion-note color="dark" item-end>
+          R$
+        </ion-note>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-note item-start>
+          Área Transversal do Cordão:
+        </ion-note>
+        <ion-label class="resulForm"> {{ usarChamfroNumber }} </ion-label>
+
+        <ion-note color="dark" item-end>
+          mm²
+        </ion-note>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-note item-start>
+          Custo consumível com gás:
+        </ion-note>
+        <ion-label class="resulForm">{{ cusGasNumber }}</ion-label>
+
+        <ion-note color="dark" item-end>
+          R$
+        </ion-note>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-note item-start color="azul">
+          Custo Total Consumíveis:
+        </ion-note>
+        <ion-label class="resulForm">{{ cusTotalConsuNumber }}</ion-label>
+
+        <ion-note color="dark" item-end>
+          R$
+        </ion-note>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <ion-fab right bottom>
+    <button ion-fab color="azul">
+      <ion-icon name="arrow-dropleft"></ion-icon>
+    </button>
+    <ion-fab-list side="left">
+      <button ion-fab color="celeste" (click)="verMais(inicio)">
+        <ion-icon name="refresh"></ion-icon>
+      </button>
+      <button ion-fab color="celeste" (click)="verMais(feedback)">
+        <ion-icon name="chatboxes"></ion-icon>
+      </button>
+      <button ion-fab color="celeste" (click)="verMais(metalurgia)">
+        <ion-icon name="information-circle"></ion-icon>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+
+
+  <ion-fab *ngIf="processo.tipoOp == 'Meta&Custo'"right bottom>
+    <button ion-fab color="azul">
+      <ion-icon name="arrow-dropleft"></ion-icon>
+    </button>
+    <ion-fab-list side="left">
+      <button ion-fab color="celeste" (click)="verMais(inicio)">
+        <ion-icon name="refresh"></ion-icon>
+      </button>
+      <button ion-fab color="celeste" (click)="verMais(feedback)">
+        <ion-icon name="chatboxes"></ion-icon>
+      </button>
+      <button ion-fab color="celeste" (click)="verMais(metalurgia)">
+        <ion-icon name="information-circle"></ion-icon>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <ion-fab *ngIf="processo.tipoOp == 'Custo'"right bottom>
+    <button ion-fab color="azul">
+      <ion-icon name="arrow-dropleft"></ion-icon>
+    </button>
+    <ion-fab-list side="left">
+      <button ion-fab color="celeste" (click)="verMais(inicio)">
+        <ion-icon name="refresh"></ion-icon>
+      </button>
+      <button ion-fab color="celeste" (click)="verMais(feedback)">
+        <ion-icon name="chatboxes"></ion-icon>
+      </button>
+      <button ion-fab color="celeste" (click)="verMais(constantes)">
+        <ion-icon name="information-circle"></ion-icon>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+
+
+
+
+
+</ion-content>

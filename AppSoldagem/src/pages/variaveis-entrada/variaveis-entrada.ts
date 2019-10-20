@@ -81,89 +81,89 @@ export class VariaveisEntradaPage {
     this.v = 20 + (0.04 * this.i); //Tensão
     this.velSolda = Math.pow((this.i + 22) / (52 * this.d), 1.43);
 
-    this.valResidual = Math.pow(0.9, 10) * this.valInves;
+    this.processo.valResidual = Math.pow(0.9, 10) * this.valInves;
 
     //Maquina
-    this.cusMedioManu = (0.1 * this.valInves) / 12;
-    this.cusDepre = (this.valInves - this.valResidual) / 10;
-    this.cusTotalMaquina = (this.cusMedioManu + this.cusDepre) / 12;
+    this.processo.cusMedioManu = (0.1 * this.valInves) / 12;
+    this.processo.cusDepre = (this.valInves - this.processo.valResidual) / 10;
+    this.processo.cusTotalMaquina = (this.processo.cusMedioManu + this.processo.cusDepre) / 12;
   }
 
-     // Eletrodo Revestido
-     tipo1() {
-      //Energia Eletrica
-      //this.mostar();
-      this.tempoSolda = (((this.er.efiDeposicao * this.numPass * this.valores.efiEquipamento * this.comCord) / 1000) / this.er.velSolda) / 60; //em horas
-      this.cusTotalEnergia = this.valores.valorKWh * this.tempoSolda;
+  // Eletrodo Revestido
+  tipo1() {
+    //Energia Eletrica
+    //this.mostar();
+    this.processo.tempoSolda = (((this.er.efiDeposicao * this.numPass * this.valores.efiEquipamento * this.comCord) / 1000) / this.er.velSolda) / 60; //em horas
+    this.processo.cusTotalEnergia = this.valores.valorKWh * this.processo.tempoSolda;
 
-      //Mão de Obra
-      this.cusTotalmObra = this.mObra * this.tempoSolda;
+    //Mão de Obra
+    this.processo.cusTotalmObra = this.mObra * this.processo.tempoSolda;
 
-      //COnsumiveis
-      this.mMetalDepo = ((this.valores.densidadeSol * this.processo.usarChanfro * this.comCord) / 1000000000) / this.er.efiDeposicao;
-      this.cusMetalDepo = this.mMetalDepo * this.er.cusEletrodo;
-      this.cusGas = 0;
-      this.cusTotalConsu = this.cusMetalDepo;
+    //COnsumiveis
+    this.processo.mMetalDepo = ((this.valores.densidadeSol * this.processo.usarChanfro * this.comCord) / 1000000000) / this.er.efiDeposicao;
+    this.processo.cusMetalDepo = this.processo.mMetalDepo * this.er.cusEletrodo;
+    this.processo.cusGas = 0;
+    this.processo.cusTotalConsu = this.processo.cusMetalDepo;
 
-      //Custo Total
-      this.custoTotal = this.cusTotalMaquina + this.cusTotalEnergia + this.cusTotalmObra + this.cusTotalConsu;
+    //Custo Total
+    this.processo.custoTotal = this.processo.cusTotalMaquina + this.processo.cusTotalEnergia + this.processo.cusTotalmObra + this.processo.cusTotalConsu;
 
-      //Metalurgia: Aporte Térmico
-      if (this.processo.tipoOp === 'Meta&Custo' ) {
-          this.aporTermico = (this.i * this.v * this.er.efiDeposicao) / this.er.velSolda;
-      }
+    //Metalurgia: Aporte Térmico
+    if (this.processo.tipoOp === 'Meta&Custo') {
+      this.aporTermico = (this.i * this.v * this.er.efiDeposicao) / this.er.velSolda;
+    }
   }
 
   //  Mig/Mag
   tipo2() {
-      //this.mostar();
-      //Energia Eletrica
-      this.tempoSolda = (((this.mm.efiDeposicao * this.numPass * this.valores.efiEquipamento * this.comCord) / 1000) / this.velSolda) / 60; //em horas /diferente
-      this.cusTotalEnergia = this.valores.valorKWh * this.tempoSolda;// diferente
+    //this.mostar();
+    //Energia Eletrica
+    this.processo.tempoSolda = (((this.mm.efiDeposicao * this.numPass * this.valores.efiEquipamento * this.comCord) / 1000) / this.velSolda) / 60; //em horas /diferente
+    this.processo.cusTotalEnergia = this.valores.valorKWh * this.processo.tempoSolda;// diferente
 
 
-      //Mão de Obra
-      this.cusTotalmObra = this.mObra * this.tempoSolda;
-      //Consumíveis
-      this.mMetalDepo = ((this.valores.densidadeSol * this.processo.usarChanfro * this.comCord) / 1000000000) / this.mm.efiDeposicao; //Kg /diferente
-      this.cusMetalDepo = this.mMetalDepo * this.mm.cusEletrodo;
-      this.cusGas = ((this.valores.vazGas * this.tempoSolda * 60) / 1000) * this.valor; //Reais MM
-      this.cusTotalConsu = this.cusMetalDepo; // MM
+    //Mão de Obra
+    this.processo.cusTotalmObra = this.mObra * this.processo.tempoSolda;
+    //Consumíveis
+    this.processo.mMetalDepo = ((this.valores.densidadeSol * this.processo.usarChanfro * this.comCord) / 1000000000) / this.mm.efiDeposicao; //Kg /diferente
+    this.processo.cusMetalDepo = this.processo.mMetalDepo * this.mm.cusEletrodo;
+    this.processo.cusGas = ((this.valores.vazGas * this.processo.tempoSolda * 60) / 1000) * this.valor; //Reais MM
+    this.processo.cusTotalConsu = this.processo.cusMetalDepo; // MM
 
 
-      //Total
-      this.custoTotal = this.cusTotalConsu + this.cusTotalEnergia + this.cusTotalMaquina + this.cusTotalmObra;
+    //Total
+    this.processo.custoTotal = this.processo.cusTotalConsu + this.processo.cusTotalEnergia + this.processo.cusTotalMaquina + this.processo.cusTotalmObra;
 
-      //Metalurgia: Aporte Térmico
-      if ((this.processo.tipoOp === 'Meta&Custo')) {
-          this.aporTermico = (this.i * this.v * this.mm.efiDeposicao) / this.velSolda;
-      }
+    //Metalurgia: Aporte Térmico
+    if ((this.processo.tipoOp === 'Meta&Custo')) {
+      this.aporTermico = (this.i * this.v * this.mm.efiDeposicao) / this.velSolda;
+    }
   }
 
   //  Arame Tubular
   tipo3() {
 
-      //Energia Eletrica
-      this.tempoSolda = (((this.at.efiDeposicao * this.numPass * this.valores.efiEquipamento * this.comCord) / 1000) / this.velSolda) / 60; //em horas /diferente
-      this.cusTotalEnergia = this.valores.valorKWh * this.tempoSolda;// diferente
+    //Energia Eletrica
+    this.processo.tempoSolda = (((this.at.efiDeposicao * this.numPass * this.valores.efiEquipamento * this.comCord) / 1000) / this.velSolda) / 60; //em horas /diferente
+    this.processo.cusTotalEnergia = this.valores.valorKWh * this.processo.tempoSolda;// diferente
 
 
-      //Mão de Obra
-      this.cusTotalmObra = this.mObra * this.tempoSolda;
-      //Consumíveis
-      this.mMetalDepo = ((this.valores.densidadeSol * this.processo.usarChanfro * this.comCord) / 1000000000) / this.at.efiDeposicao; //Kg /diferente
-      this.cusMetalDepo = this.mMetalDepo * this.at.cusEletrodo;
-      this.cusGas = ((this.valores.vazGas * this.tempoSolda * 60) / 1000) * this.valor; //Reais MM
-      this.cusTotalConsu = this.cusMetalDepo; // MM
+    //Mão de Obra
+    this.processo.cusTotalmObra = this.mObra * this.processo.tempoSolda;
+    //Consumíveis
+    this.processo.mMetalDepo = ((this.valores.densidadeSol * this.processo.usarChanfro * this.comCord) / 1000000000) / this.at.efiDeposicao; //Kg /diferente
+    this.processo.cusMetalDepo = this.processo.mMetalDepo * this.at.cusEletrodo;
+    this.processo.cusGas = ((this.valores.vazGas * this.processo.tempoSolda * 60) / 1000) * this.valor; //Reais MM
+    this.processo.cusTotalConsu = this.processo.cusMetalDepo; // MM
 
 
-      //Total
-      this.custoTotal = this.cusTotalConsu + this.cusTotalEnergia + this.cusTotalMaquina + this.cusTotalmObra;
+    //Total
+    this.processo.custoTotal = this.processo.cusTotalConsu + this.processo.cusTotalEnergia + this.processo.cusTotalMaquina + this.processo.cusTotalmObra;
 
-      //Metalurgia: Aporte Térmico
-      if ((this.processo.tipoOp === 'Meta&Custo')) {
-          this.aporTermico = (this.i * this.v * this.at.efiDeposicao) / this.velSolda;
-      }
+    //Metalurgia: Aporte Térmico
+    if ((this.processo.tipoOp === 'Meta&Custo')) {
+      this.aporTermico = (this.i * this.v * this.at.efiDeposicao) / this.velSolda;
+    }
   }
 
   resul() {

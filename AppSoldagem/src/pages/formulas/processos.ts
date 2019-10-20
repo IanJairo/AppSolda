@@ -10,4 +10,26 @@ export let processos = {
     valInves: 0,
 
 
+    //Maquina
+    valResidual: 0,
+    cusMedioManu: 0,
+    cusDepre: 0,
+    cusTotalMaquina: 0,
+
+    //Energia
+    tempoSolda: 0,
+    cusTotalEnergia: 0,
+
+    //Mão de obra
+    cusTotalmObra: 0,
+
+    //Consumíves 
+    mMetalDepo: 0,
+    cusMetalDepo: 0,
+    cusGas: 0,
+    cusTotalConsu: 0,
+
+    //Total
+    custoTotal: 0,
+
 }
