@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { chanfro } from '../formulas/chanfro';
 import { processos } from '../formulas/processos';
-
-
+import { valores } from '../formulas/constantes';
 
 @IonicPage()
 @Component({
@@ -13,6 +12,13 @@ import { processos } from '../formulas/processos';
 export class TipoOperacaoPage {
   op1: boolean;
   op2: boolean;
+
+
+  public valores = valores;
+
+  public val_geral = {
+
+  }
 
 
   public espessura: number;
@@ -32,13 +38,14 @@ export class TipoOperacaoPage {
 
   public processos = processos;
   public cFormulas = chanfro;
-  
+
   public escolhaOp2;
 
   constructor(
     public navCtrl: NavController,
     public alertCtrl: AlertController,
-    public navParams: NavParams) {
+    public navParams: NavParams,
+) {
     this.op1 = false;
     this.op2 = true;
 
@@ -63,7 +70,7 @@ export class TipoOperacaoPage {
       let a2: number = retangulo;
       let a3: number = Evx;
       let a4: number = Evmv;
-      
+
       this.aTV = a1 + a2 + a3 + a4;
 
       this.processos.usarChanfro = this.aTV;
@@ -181,5 +188,9 @@ export class TipoOperacaoPage {
     });
     alert.present()
   }
+  ionViewDidLoad() {
 
+  }
 }
+
+

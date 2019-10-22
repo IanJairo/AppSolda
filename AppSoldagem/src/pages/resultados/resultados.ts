@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, Modal } from 'ionic-angular';
+import { IonicPage, NavController, ModalController } from 'ionic-angular';
 import { processos } from '../formulas/processos';
 import { TipoOperacaoPage } from '../tipo-operacao/tipo-operacao';
-//import { ConstantesPage } from '../constantes/constantes';
+import { FeedbackPage } from '../feedback/feedback';
+import { ModifiConstantesPage } from '../modifi-constantes/modifi-constantes';
 
 
 
@@ -87,7 +88,7 @@ export class ResultadosPage {
     }
 
     if (req === 'feedback') {
-      //this.navCtrl.setRoot(FeedbackPage);
+      this.navCtrl.setRoot(FeedbackPage);
     }
 
     if (req === 'metalurgia') {
@@ -96,7 +97,7 @@ export class ResultadosPage {
     }
 
     else {
-      this.navCtrl.setRoot('ModifiConstantesPage');
+      this.navCtrl.setRoot(ModifiConstantesPage);
 
     }
   }

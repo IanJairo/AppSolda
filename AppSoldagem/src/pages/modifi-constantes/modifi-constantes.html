@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-navbar color="energized" hideBackButton>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Constantes</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="fondo">
+  <ion-card>
+    <ion-list>
+      <ion-list-header color="azul">Constantes Gerais</ion-list-header>
+      <ion-item>
+        <ion-input type="number" [(ngModel)]="val_geral.efiEquipamento"
+          placeholder="Eficiencia de Equipamento: {{valores.efiEquipamento}}"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="number" [(ngModel)]="val_geral.vk" placeholder="Valor de Kwh: {{valores.valorKWh}}">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="number" [(ngModel)]="val_geral.vg" placeholder="Vazão de Gas: {{valores.vazGas}}">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="number" [(ngModel)]="val_geral.ds"
+          placeholder="Densidade de Solda.: {{valores.densidadeSol}}"></ion-input>
+      </ion-item>
+
+    </ion-list>
+  </ion-card>
+
+  <ion-card>
+    <ion-list>
+      <ion-list-header color="azul">Constantes Eletrodo Revestido</ion-list-header>
+      <ion-item>
+        <ion-input type="number" [(ngModel)]="val_er.ed"
+          placeholder="Eficiencia de Deposição: {{er.efiDeposicao}}"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="number" [(ngModel)]="val_er.ce" placeholder="Custo do Eletrodo: {{er.cusEletrodo}}">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="number" [(ngModel)]="val_er.vs" placeholder="Velocidade de Solda.: {{er.velSolda}}">
+        </ion-input>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <ion-card>
+    <ion-list>
+      <ion-list-header color="azul">Constantes Mig/Mag</ion-list-header>
+      <ion-item>
+        <ion-input type="number" [(ngModel)]="val_mm.ed"
+          placeholder="Eficiencia de Deposição: {{mm.efiDeposicao}}"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="number" [(ngModel)]="val_mm.ce" placeholder="Custo do Eletrodo: {{mm.cusEletrodo}}">
+        </ion-input>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <ion-card>
+    <ion-list>
+      <ion-list-header color="azul">Constantes Arame Tubular</ion-list-header>
+      <ion-item>
+        <ion-input type="number" [(ngModel)]="val_at.ed"
+          placeholder="Eficiencia de Deposição: {{at.efiDeposicao}}"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="number" [(ngModel)]="val_at.ce" placeholder="Custo do Eletrodo: {{at.cusEletrodo}}">
+        </ion-input>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <button ion-button block color="mostaza" (click)="subir()">Modificar Constantes</button>
+</ion-content>

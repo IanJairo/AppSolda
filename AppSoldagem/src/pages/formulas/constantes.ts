@@ -4,7 +4,7 @@ export let constantes = {
 }
 
 export let valores = {
-    
+    envio: false,
     efiEquipamento: 0.9,
     valorKWh: 0.39,
     vazGas: 15,

@@ -10,24 +10,35 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TipoOperacaoPage } from '../pages/tipo-operacao/tipo-operacao';
 import { FeedbackPage } from '../pages/feedback/feedback';
+import { ModifiConstantesPage } from '../pages/modifi-constantes/modifi-constantes';
+
+import { IonicStorageModule } from '@ionic/storage';
+
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     TipoOperacaoPage,
-    FeedbackPage
+    FeedbackPage,
+    ModifiConstantesPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot({
+      name: '__soldagem',
+      storeName: 'constantes',
+      driverOrder: ['indexeddb', 'sqlite', 'websql']
+    }),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
     TipoOperacaoPage,
-    FeedbackPage
+    FeedbackPage,
+    ModifiConstantesPage
   ],
   providers: [
     StatusBar,
