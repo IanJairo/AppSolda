@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-toolbar color="energized">
+    <ion-title>
+      Editar
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="fondo">
+  <ion-card *ngIf="tipo == 'geral'">
+    <ion-list>
+      <ion-list-header color="azul">
+        Constantes Gerais
+      </ion-list-header>
+    </ion-list>
+
+    <ion-item>
+      <ion-label floating>Eficiência de Equipamento</ion-label>
+      <ion-input type="number" [(ngModel)]="const.efiEquipamento">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Valor de Kwh:</ion-label>
+      <ion-input type="number" [(ngModel)]="const.valorKWh">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Vazão de gás:</ion-label>
+      <ion-input type="number" [(ngModel)]="const.vazGas">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Densidade de Solda</ion-label>
+      <ion-input type="number" [(ngModel)]="const.densidadeSol">
+      </ion-input>
+    </ion-item>
+  </ion-card>
+
+  <ion-card *ngIf="tipo == 'er'">
+    <ion-list>
+      <ion-list-header color="azul">
+        Constantes Eletrodo Revestido
+      </ion-list-header>
+    </ion-list>
+
+    <ion-item>
+      <ion-label floating>Eficiência de Deposição</ion-label>
+      <ion-input type="number" [(ngModel)]="const.efiDeposicao">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Custo do Eletrodo</ion-label>
+      <ion-input type="number" [(ngModel)]="const.cusEletrodo">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Velocidade de Solda</ion-label>
+      <ion-input type="number" [(ngModel)]="const.velSolda">
+      </ion-input>
+    </ion-item>
+
+  </ion-card>
+
+  <ion-card *ngIf="tipo != 'er' && tipo != 'geral'">
+    <ion-list>
+      <ion-list-header *ngIf="tipo == 'mm'"  color="azul">
+        Constantes Mig/Mag
+      </ion-list-header>
+
+      <ion-list-header *ngIf="tipo == 'at'"  color="azul">
+          Constantes Arame Tubular
+        </ion-list-header>
+
+
+    </ion-list>
+
+    <ion-item>
+      <ion-label floating>Eficiência de Deposição</ion-label>
+      <ion-input type="number" [(ngModel)]="const.efiDeposicao">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Custo do Eletrodo</ion-label>
+      <ion-input type="number" [(ngModel)]="const.cusEletrodo">
+      </ion-input>
+    </ion-item>
+
+  </ion-card>
+
+  <button ion-button color="mostaza" block (click)="enviar()">Enviar</button>
+
+</ion-content>

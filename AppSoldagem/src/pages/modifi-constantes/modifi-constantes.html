@@ -9,10 +9,14 @@
 
 
 <ion-content class="fondo">
-  <!--CARD QUE MOSTRA AS CONSTANTES GERAIS--> 
+  <!--CARD QUE MOSTRA AS CONSTANTES GERAIS-->
   <ion-card>
     <ion-list>
-      <ion-list-header color="azul">Constantes Gerais</ion-list-header>
+      <ion-list-header color="azul">
+        Constantes Gerais
+        <ion-note item-end (click)="editar('geral', valores)">Editar</ion-note>
+
+      </ion-list-header>
 
       <ion-item>
         <h2>Eficiencia de Equipamento:</h2>
@@ -25,7 +29,7 @@
       </ion-item>
       <ion-item>
         <h2>Vazão de Gas:</h2>
-        <p>{{valores.vasGas}}</p>
+        <p>{{valores.vazGas}}</p>
       </ion-item>
       <ion-item>
         <h2>Densidade de Solda:</h2>
@@ -37,7 +41,9 @@
   <!--CARD QUE MOSTRA AS CONSTANTES DO ELETRODO REVESTIDO-->
   <ion-card>
     <ion-list>
-      <ion-list-header color="azul">Constantes Eletrodo Revestido</ion-list-header>
+      <ion-list-header color="azul">Constantes Eletrodo Revestido
+        <ion-note item-end (click)="editar('er', er)">Editar</ion-note>
+      </ion-list-header>
       <ion-item>
         <h2>Eficiencia de Deposição:</h2>
         <p>{{er.efiDeposicao}}</p>
@@ -59,7 +65,11 @@
   <!--CARD QUE MOSTRA AS CONTANTES MIG/MAG-->
   <ion-card>
     <ion-list>
-      <ion-list-header color="azul">Constantes Mig/Mag</ion-list-header>
+      <ion-list-header color="azul">
+        Constantes Mig/Mag
+        <ion-note item-end (click)="editar('mm', mm)">Editar</ion-note>
+
+      </ion-list-header>
 
       <ion-item>
         <h2>Eficiencia de Deposição:</h2>
@@ -77,7 +87,10 @@
   <!--CARD QUE MOSTRA AS CONTANTES ARAME TUBULAR-->
   <ion-card>
     <ion-list>
-      <ion-list-header color="azul">Constantes Arame Tubular</ion-list-header>
+      <ion-list-header color="azul">
+        Constantes Arame Tubular
+        <ion-note item-end (click)="editar('at', at)">Editar</ion-note>
+      </ion-list-header>
 
       <ion-item>
         <h2>Eficiencia de Deposição:</h2>
@@ -90,6 +103,4 @@
       </ion-item>
     </ion-list>
   </ion-card>
-
-  <button ion-button block color="mostaza" (click)="subir()">Modificar Constantes</button>
 </ion-content>

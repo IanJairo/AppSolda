@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, ModalController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { valores, er, mm, at } from '../formulas/constantes';
 
@@ -52,11 +52,22 @@ export class ModifiConstantesPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public toastCtrl: ToastController,
+    public modalCtrl: ModalController,
 
     private storage: Storage,
   ) {
 
   }
+  editar(tipo, valores) {
+    const modal = this.modalCtrl.create('EditarPage', {
+      tipo: tipo,
+      valores: valores
+    });
+    modal.present();
+  }
+
+
+
 
   //Enviar valores ao banco
   subir() {

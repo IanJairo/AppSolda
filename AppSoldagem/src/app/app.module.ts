@@ -13,6 +13,7 @@ import { FeedbackPage } from '../pages/feedback/feedback';
 import { ModifiConstantesPage } from '../pages/modifi-constantes/modifi-constantes';
 
 import { IonicStorageModule } from '@ionic/storage';
+import { AlertasProvider } from '../providers/alertas/alertas';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { IonicStorageModule } from '@ionic/storage';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AlertasProvider
   ]
 })
 export class AppModule {}
