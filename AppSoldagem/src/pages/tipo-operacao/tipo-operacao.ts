@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { chanfro } from '../formulas/chanfro';
 import { processos } from '../formulas/processos';
 import { valores } from '../formulas/constantes';
+import { AlertasProvider } from '../../providers/alertas/alertas';
 
 @IonicPage()
 @Component({
@@ -43,8 +44,8 @@ export class TipoOperacaoPage {
 
   constructor(
     public navCtrl: NavController,
-    public alertCtrl: AlertController,
     public navParams: NavParams,
+    public alertas: AlertasProvider
 ) {
     this.op1 = false;
     this.op2 = true;
@@ -126,7 +127,7 @@ export class TipoOperacaoPage {
 
     if (isNaN(this.espessura) || isNaN(this.nariz) || isNaN(this.fresta)
       || isNaN(this.angulo) || isNaN(this.acabamento) || (!this.chamfro)) {
-      this.alerta();
+      this.alertas.presentAlert();
     }
 
     else {
@@ -180,14 +181,7 @@ export class TipoOperacaoPage {
   }
 
 
-  alerta() {
-    let alert = this.alertCtrl.create({
-      title: 'Olá Soldador!',
-      message: 'Prencha todos os campos para ter resultado!',
-      buttons: ['Ok']
-    });
-    alert.present()
-  }
+
   ionViewDidLoad() {
 
   }

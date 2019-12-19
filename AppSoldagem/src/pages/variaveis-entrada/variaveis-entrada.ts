@@ -6,6 +6,7 @@ import { er } from '../formulas/constantes';
 import { valores } from '../formulas/constantes';
 import { mm } from '../formulas/constantes';
 import { at } from '../formulas/constantes';
+import { AlertasProvider } from '../../providers/alertas/alertas';
 
 @IonicPage()
 @Component({
@@ -68,7 +69,8 @@ export class VariaveisEntradaPage {
 
   constructor(
     public navCtrl: NavController,
-    public navParams: NavParams
+    public navParams: NavParams,
+    public alerta: AlertasProvider
   ) {
     this.id = navParams.get('id');
     this.mLabel = navParams.get('mLabel');
@@ -179,28 +181,65 @@ export class VariaveisEntradaPage {
 
 
     if (this.id === 'Er') {
-      this.tipoGeral();
-      this.tipo1();
+      if (this.numPass === undefined || this.mObra === undefined ||
+        this.comCord === undefined || this.d === undefined ||
+        this.valInves === undefined) {
+        this.alerta.presentAlert();
+
+      }
+      else {
+        this.tipoGeral();
+        this.tipo1();
+        this.navCtrl.push('ResultadosPage');
+
+
+      }
+
+
     }
 
     else if (this.id === 'Mm') {
-      this.tipoGeral();
-      this.tipo2();
 
 
+      if (this.numPass === undefined || this.mObra === undefined ||
+        this.comCord === undefined || this.d === undefined ||
+        this.valInves === undefined || this.valor === undefined) {
+        this.alerta.presentAlert();
+
+      }
+
+      else {
+        this.tipoGeral();
+        this.tipo2();
+        this.navCtrl.push('ResultadosPage');
+
+
+      }
 
     }
 
     else if (this.id === 'At') {
 
-      this.tipoGeral();
-      this.tipo3();
 
+
+      if (this.numPass === undefined || this.mObra === undefined ||
+        this.comCord === undefined || this.d === undefined ||
+        this.valInves === undefined || this.valor === undefined) {
+        this.alerta.presentAlert();
+
+      }
+
+      else {
+        this.tipoGeral();
+        this.tipo3();
+        this.navCtrl.push('ResultadosPage');
+
+      }
 
     }
 
 
-    this.navCtrl.push('ResultadosPage');
+
 
 
 
