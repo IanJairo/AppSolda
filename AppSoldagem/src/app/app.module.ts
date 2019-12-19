@@ -15,6 +15,14 @@ import { ModifiConstantesPage } from '../pages/modifi-constantes/modifi-constant
 import { IonicStorageModule } from '@ionic/storage';
 import { AlertasProvider } from '../providers/alertas/alertas';
 
+import { CONFIG } from './config.fire';
+
+import { AngularFirestoreModule } from '@angular/fire/firestore'; //O Database 
+import { AngularFireStorageModule } from '@angular/fire/storage'; 
+import { AngularFireAuthModule } from '@angular/fire/auth'; //Autenticação
+import { AngularFireModule } from '@angular/fire';
+
+
 
 @NgModule({
   declarations: [
@@ -27,6 +35,10 @@ import { AlertasProvider } from '../providers/alertas/alertas';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    AngularFireStorageModule, // imports firebase/storage only needed for storage features
+    AngularFireModule.initializeApp(CONFIG),
     IonicStorageModule.forRoot({
       name: '__soldagem',
       storeName: 'constantes',
@@ -44,8 +56,8 @@ import { AlertasProvider } from '../providers/alertas/alertas';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     AlertasProvider
   ]
 })
-export class AppModule {}
+export class AppModule { }
