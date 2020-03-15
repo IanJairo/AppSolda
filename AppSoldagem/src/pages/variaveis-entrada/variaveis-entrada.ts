@@ -8,6 +8,11 @@ import { mm } from '../formulas/constantes';
 import { at } from '../formulas/constantes';
 import { AlertasProvider } from '../../providers/alertas/alertas';
 
+import { Storage } from '@ionic/storage';
+import { chanfro } from '../formulas/chanfro';
+
+
+
 @IonicPage()
 @Component({
   selector: 'page-variaveis-entrada',
@@ -22,8 +27,10 @@ export class VariaveisEntradaPage {
   public valor: number;
   public valInves: number;
 
-
   public processo = processos;
+  public chanfro = chanfro;
+
+  public resultado: Resultados[] = [];
   public er = er;
   public valores = valores;
   public mm = mm;
@@ -66,16 +73,23 @@ export class VariaveisEntradaPage {
   public mLogo: string = 'md-beaker';
   public mLabel: string = 'i';
   public mVari: string = 'b';
+  public data: Date = new Date();
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public alerta: AlertasProvider
+    public alerta: AlertasProvider,
+    public storage: Storage
+
   ) {
     this.id = navParams.get('id');
     this.mLabel = navParams.get('mLabel');
 
   }
+
+
+
+
 
   tipoGeral() {
     ////this.mostar();
@@ -114,6 +128,8 @@ export class VariaveisEntradaPage {
     if (this.processo.tipoOp === 'Meta&Custo') {
       this.aporTermico = (this.i * this.v * this.er.efiDeposicao) / this.er.velSolda;
     }
+
+
   }
 
   //  Mig/Mag
@@ -180,11 +196,12 @@ export class VariaveisEntradaPage {
 
 
 
+
     if (this.id === 'Er') {
       if (this.numPass === undefined || this.mObra === undefined ||
         this.comCord === undefined || this.d === undefined ||
         this.valInves === undefined) {
-        this.alerta.presentAlert();
+        this.alerta.presentAlert('Prencha todos os campos para ter resultado!');
 
       }
       else {
@@ -192,7 +209,8 @@ export class VariaveisEntradaPage {
         this.tipo1();
         this.navCtrl.push('ResultadosPage');
 
-
+        this.pushResult();
+        this.storage.set('resultados', this.resultado);
       }
 
 
@@ -204,7 +222,7 @@ export class VariaveisEntradaPage {
       if (this.numPass === undefined || this.mObra === undefined ||
         this.comCord === undefined || this.d === undefined ||
         this.valInves === undefined || this.valor === undefined) {
-        this.alerta.presentAlert();
+        this.alerta.presentAlert('Prencha todos os campos para ter resultado!');
 
       }
 
@@ -212,6 +230,10 @@ export class VariaveisEntradaPage {
         this.tipoGeral();
         this.tipo2();
         this.navCtrl.push('ResultadosPage');
+        this.pushResult();
+        this.storage.set('resultados', this.resultado);
+
+
 
 
       }
@@ -225,29 +247,112 @@ export class VariaveisEntradaPage {
       if (this.numPass === undefined || this.mObra === undefined ||
         this.comCord === undefined || this.d === undefined ||
         this.valInves === undefined || this.valor === undefined) {
-        this.alerta.presentAlert();
-
+        this.alerta.presentAlert('Prencha todos os campos para ter resultado!');
       }
 
       else {
         this.tipoGeral();
         this.tipo3();
         this.navCtrl.push('ResultadosPage');
-
+        this.pushResult();
+        this.storage.set('resultados', this.resultado);
       }
-
     }
+  }
 
 
+  pushResult() {
+    this.resultado.push({
+      idProcesso: this.id,
+      tipoOp: this.processo.tipoOp,
+      usarChanfro: this.processo.usarChanfro,
+      comCord: this.processo.comCord,
+      corrente: this.processo.corrente,
+      d: this.processo.d,
+      mObra: this.processo.mObra,
+      numPass: this.processo.numPass,
+      valGas: this.processo.valGas,
+      valInves: this.processo.valInves,
 
 
+      //Maquina
+      valResidual: this.processo.valResidual,
+      cusMedioManu: this.processo.cusMedioManu,
+      cusDepre: this.processo.cusDepre,
+      cusTotalMaquina: this.processo.cusTotalMaquina,
 
+      //Energia
+      tempoSolda: this.processo.tempoSolda,
+      cusTotalEnergia: this.processo.cusTotalEnergia,
 
+      //Mão de obra
+      cusTotalmObra: this.processo.cusTotalmObra,
 
+      //Consumíves 
+      mMetalDepo: this.processo.mMetalDepo,
+      cusMetalDepo: this.processo.cusMetalDepo,
+      cusGas: this.processo.cusGas,
+      cusTotalConsu: this.processo.cusTotalConsu,
+
+      //Total
+      custoTotal: this.processo.custoTotal,
+
+      imgChanfro: this.chanfro.imagem,
+      nomeChanfro: this.chanfro.chamfro
+
+    });
   }
 
   ionViewDidLoad() {
-    console.log(this.id);
+    //Retorna os valores do BCDD 
+    this.storage.get('resultados').then((val) => {
+      //Verifica se existe o banco
+      if (val !== null) {
+        //Verifica se o objeto que retorna tem mais de três operações
+        if (val.length >= 3) {
+          //Elimina a operação mais antiga
+          val.shift();
+          //Adiciona com a operação apagada => length(2)
+          this.resultado = val;
+        }
+        else {
+          //Caso as operações dentro do banco seja menor que 3, adiciona normalmente
+          this.resultado = val;
+        }
+      }
+      else {
+        //Banco não existe!
+        console.log('Não há nada salvo no banco!');
+      }
+    });
   }
+}
+
+class Resultados {
+  idProcesso: any;
+  tipoOp: any;
+  usarChanfro: any;
+  comCord: any;
+  corrente: any;
+  d: any;
+  mObra: any;
+  numPass: any;
+  valGas: any;
+  valInves: any;
+  valResidual: any;
+  cusMedioManu: any;
+  cusDepre: any;
+  cusTotalMaquina: any;
+  tempoSolda: any;
+  cusTotalEnergia: any;
+  cusTotalmObra: any;
+  mMetalDepo: any;
+  cusMetalDepo: any;
+  cusGas: any;
+  cusTotalConsu: any;
+  custoTotal: any;
+  nomeChanfro: any;
+  imgChanfro: any
+
 
 }

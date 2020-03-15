@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar color="energized">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Histórico</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content class="fondo">
+  <div *ngIf="valores">
+    <ion-card *ngFor="let v of valores">
+      <ion-list color="white">
+        <ion-list-header color="azul">
+          Operação
+        </ion-list-header>
+      </ion-list>
+      <ion-item>
+        <p>Tipo de Chanfro</p>
+        <h2 *ngIf="v.nomeChanfro == 'tipoV'">Tipo V</h2>
+        <h2 *ngIf="v.nomeChanfro == 'tipoX'">Tipo X</h2>
+        <h2 *ngIf="v.nomeChanfro == 'tipoK'">Tipo K</h2>
+        <h2 *ngIf="v.nomeChanfro == 'tipoMeioV'">Tipo Meio V</h2>
+
+      </ion-item>
+      <ion-item>
+        <img [src]="v.imgChanfro">
+      </ion-item>
+      <ion-item>
+        <p>Tipo de Operação</p>
+        <h2 *ngIf="v.idProcesso == 'Er'">Eletrodo Revestido</h2>
+        <h2 *ngIf="v.idProcesso == 'Mm'">Mig/Mag</h2>
+        <h2 *ngIf="v.idProcesso == 'At'">Arame Tubular</h2>
+
+
+      </ion-item>
+
+      <ion-item>
+        <button ion-button icon-start clear item-end (click)="verResultados(v)">
+          <ion-icon name="navigate"></ion-icon>
+          Ver mais
+        </button>
+      </ion-item>
+
+    </ion-card>
+  </div>
+</ion-content>

@@ -46,7 +46,7 @@ export class TipoOperacaoPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public alertas: AlertasProvider
-) {
+  ) {
     this.op1 = false;
     this.op2 = true;
 
@@ -78,6 +78,7 @@ export class TipoOperacaoPage {
 
 
 
+
     }
 
     if (this.chamfro === "tipoX") {
@@ -89,6 +90,7 @@ export class TipoOperacaoPage {
 
       this.processos.usarChanfro = this.aTX;
 
+
     }
 
     if (this.chamfro === "tipoK") {
@@ -97,6 +99,7 @@ export class TipoOperacaoPage {
 
       this.aTK = a1 + a2;
       this.processos.usarChanfro = this.aTK;
+
 
     }
 
@@ -108,6 +111,7 @@ export class TipoOperacaoPage {
 
       this.aTmeioV = a1 + a2 + a3 + a4;
       this.processos.usarChanfro = this.aTmeioV;
+
 
     }
 
@@ -125,9 +129,10 @@ export class TipoOperacaoPage {
 
 
 
+
     if (isNaN(this.espessura) || isNaN(this.nariz) || isNaN(this.fresta)
       || isNaN(this.angulo) || isNaN(this.acabamento) || (!this.chamfro)) {
-      this.alertas.presentAlert();
+      this.alertas.presentAlert('Prencha todos os campos para ter resultado!');
     }
 
     else {
@@ -160,21 +165,29 @@ export class TipoOperacaoPage {
 
     if (this.chamfro === "tipoV") {
       this.imagem = "assets/fots/ChamfroTipoV.png";
+
+
       this.cFormulas.imagem = this.imagem;
     }
 
     if (this.chamfro === "tipoX") {
       this.imagem = "assets/fots/ChamfroTipoX.png";
+
+
       this.cFormulas.imagem = this.imagem;
     }
 
     if (this.chamfro === "tipoK") {
       this.imagem = "assets/fots/ChamfroTipoK.png";
+
+
       this.cFormulas.imagem = this.imagem;
     }
 
     if (this.chamfro === "tipoMeioV") {
       this.imagem = "assets/fots/ChamfroTipoMeioV.png";
+
+
       this.cFormulas.imagem = this.imagem;
     }
 

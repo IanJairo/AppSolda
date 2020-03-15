@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
-//import { FirebaseServiceProvider } from '../../providers/firebase-service/firebase-service';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AlertasProvider } from '../../providers/alertas/alertas';
+import { FirebaseProvider } from '../../providers/firebase/firebase';
+
 
 
 @IonicPage()
@@ -14,46 +16,32 @@ export class FeedbackPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    //public db: FirebaseServiceProvider,
-    public alerCtrl: AlertController,
-    public toastCtrl: ToastController) {
+    public db: FirebaseProvider,
+    public alerta: AlertasProvider,
+    //public network: NetworkOriginal
+  ) {
   }
 
   enviar() {
     if (this.supportMessage === undefined || this.supportMessage.length < 10) {
-      this.alerta('Sua mensagem precisa ter mais de 10 carateres');
+      this.alerta.presentAlert('Sua mensagem precisa ter mais de 10 carateres');
     }
 
     else {
       console.log(this.supportMessage.length);
-      //this.db.save(this.supportMessage);
-      this.enviarAlerta();
+      this.db.enviarMensagem(this.supportMessage);
+      this.alerta.presentToast('Mensagem enviada com sucesso!');
 
     }
   }
-  
-  //Alerta para campo vazio
-  alerta(message) {
-    let alert = this.alerCtrl.create({
-      title: 'Olá Soldador!',
-      message,
-      buttons: ['Ok']
-    });
-    alert.present()
-  }
-  //Toast para enviado
-  enviarAlerta() {
-    let toast = this.toastCtrl.create({
-      message: 'Mensagem enviada com sucesso!',
-      duration: 3000,
-      position: 'bottom'
-    });
 
-    toast.present();
 
-  }
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad FeedbackPage');
+
+  ionViewDidEnter() {
+    //this.network.onDisconnect().subscribe(data => {
+    //  console.log(data);
+    //},
+    //  error => console.log(error));
   }
 
 }

@@ -6,4 +6,4 @@ export let chanfro = {
     acabamento: 0,
     chamfro: '',
     imagem: ''
-}
+}   

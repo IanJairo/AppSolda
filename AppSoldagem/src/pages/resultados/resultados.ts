@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, ModalController, NavParams } from 'ionic-angular';
 import { processos } from '../formulas/processos';
 import { TipoOperacaoPage } from '../tipo-operacao/tipo-operacao';
 import { FeedbackPage } from '../feedback/feedback';
 import { ModifiConstantesPage } from '../modifi-constantes/modifi-constantes';
 
+import { Storage } from '@ionic/storage';
 
 
 
@@ -15,6 +16,7 @@ import { ModifiConstantesPage } from '../modifi-constantes/modifi-constantes';
 })
 export class ResultadosPage {
   public processo = processos;
+
   public valResidual: number = this.processo.valResidual;
   public valResidualNumber: string;
 
@@ -60,11 +62,16 @@ export class ResultadosPage {
   public modo: string;
 
 
-
+  public tipo: any;
+  public resul: any;
 
   constructor(
     public navCtrl: NavController,
-    public modalCtrl: ModalController) {
+    public navParams: NavParams,
+    public modalCtrl: ModalController,
+    public storage: Storage) {
+
+
 
     this.valResidualNumber = (this.valResidual).toLocaleString('pt-BR', { maximumFractionDigits: 2 });
     this.cusMedioManuNumber = (this.cusMedioManu).toLocaleString('pt-BR', { maximumFractionDigits: 2 });
@@ -103,21 +110,15 @@ export class ResultadosPage {
   }
 
   ionViewDidLoad() {
-    if ((this.processo.tipoOp === 'Meta&Custo')) {
-      this.modo = 'Valores de Metalurgia';
-
-    }
-
-    else {
-      this.modo = 'Modificar contantes';
-    }
+    // this.tipo = this.navParams.get('tipo');
+    // this.resul = this.navParams.get('resul');
+    // if (this.tipo === 'historico') {
+    //   this.processo = this.resul;
+    // }
+    //
+    // else {
+    //   this.processo = processos;
+    // }
+    console.log(this.processo);
   }
-
-
-
-
-
-
-
-
 }

@@ -32,4 +32,7 @@ export let processos = {
     //Total
     custoTotal: 0,
 
+    
+    
+
 }

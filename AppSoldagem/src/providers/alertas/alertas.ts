@@ -20,10 +20,10 @@ export class AlertasProvider {
     toast.present();
   }
   
-  presentAlert() {
+  presentAlert(message) {
     let alert = this.alertController.create({
       title: 'Olá Soldador!',
-      message: 'Prencha todos os campos para ter resultado!',
+      message,
       buttons: ['Ok']
     });
     alert.present()

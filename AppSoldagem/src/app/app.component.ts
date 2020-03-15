@@ -8,6 +8,7 @@ import { TipoOperacaoPage } from '../pages/tipo-operacao/tipo-operacao';
 import { FeedbackPage } from '../pages/feedback/feedback';
 import { ModifiConstantesPage } from '../pages/modifi-constantes/modifi-constantes';
 import { valores } from '../pages/formulas/constantes';
+import { HistoricoPage } from '../pages/historico/historico';
 
 
 
@@ -45,6 +46,7 @@ export class MyApp {
       { title: 'Início', component: HomePage },
       { title: 'Operação', component: TipoOperacaoPage },
       { title: 'Constantes', component: ModifiConstantesPage },
+      { title: 'Historico', component: HistoricoPage },
       { title: 'Feedback', component: FeedbackPage },
 
     ];

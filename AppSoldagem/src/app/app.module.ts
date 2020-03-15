@@ -18,11 +18,14 @@ import { AlertasProvider } from '../providers/alertas/alertas';
 import { CONFIG } from './config.fire';
 
 import { AngularFirestoreModule } from '@angular/fire/firestore'; //O Database 
-import { AngularFireStorageModule } from '@angular/fire/storage'; 
+
 import { AngularFireAuthModule } from '@angular/fire/auth'; //Autenticação
 import { AngularFireModule } from '@angular/fire';
+import { FirebaseProvider } from '../providers/firebase/firebase';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { HistoricoPage } from '../pages/historico/historico';
 
-
+//import {  NetworkOriginal } from '@ionic-native/network';
 
 @NgModule({
   declarations: [
@@ -30,14 +33,14 @@ import { AngularFireModule } from '@angular/fire';
     HomePage,
     TipoOperacaoPage,
     FeedbackPage,
-    ModifiConstantesPage
+    ModifiConstantesPage,
+    HistoricoPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
-    AngularFireStorageModule, // imports firebase/storage only needed for storage features
     AngularFireModule.initializeApp(CONFIG),
     IonicStorageModule.forRoot({
       name: '__soldagem',
@@ -51,13 +54,18 @@ import { AngularFireModule } from '@angular/fire';
     HomePage,
     TipoOperacaoPage,
     FeedbackPage,
-    ModifiConstantesPage
+    ModifiConstantesPage,
+    HistoricoPage
+
   ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    AlertasProvider
+    AlertasProvider,
+    FirebaseProvider,
+    AngularFireDatabase
+    //    NetworkOriginal
   ]
 })
 export class AppModule { }
