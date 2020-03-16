@@ -5,24 +5,24 @@ export let constantes = {
 
 export let valores = {
     envio: false,
-    efiEquipamento: 0.9,
-    valorKWh: 0.39,
-    vazGas: 15,
-    densidadeSol: 7860,
+    efiEquipamento: 0,
+    valorKWh: 0,
+    vazGas: 0,
+    densidadeSol: 0,
 }
 
 export let mm = {
-    efiDeposicao: 0.9,
-    cusEletrodo: 8.3,
+    efiDeposicao: 0,
+    cusEletrodo: 0,
 }
 
 export let er = {
-    efiDeposicao: 0.6,
-    cusEletrodo: 10.39,
-    velSolda: 0.006,
+    efiDeposicao: 0,
+    cusEletrodo: 0,
+    velSolda: 0,
 }
 
 export let at = {
-    efiDeposicao: 0.85,
-    cusEletrodo: 11.42,
+    efiDeposicao: 0,
+    cusEletrodo: 0,
 }

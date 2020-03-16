@@ -2,8 +2,11 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { chanfro } from '../formulas/chanfro';
 import { processos } from '../formulas/processos';
-import { valores } from '../formulas/constantes';
+import { valores, er, mm, at } from '../formulas/constantes';
+
 import { AlertasProvider } from '../../providers/alertas/alertas';
+import { Storage } from '@ionic/storage';
+
 
 @IonicPage()
 @Component({
@@ -16,6 +19,9 @@ export class TipoOperacaoPage {
 
 
   public valores = valores;
+  public er = er;
+  public mm = mm;
+  public at = at;
 
   public val_geral = {
 
@@ -45,7 +51,8 @@ export class TipoOperacaoPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public alertas: AlertasProvider
+    public alertas: AlertasProvider,
+    public storage: Storage
   ) {
     this.op1 = false;
     this.op2 = true;
@@ -196,8 +203,54 @@ export class TipoOperacaoPage {
 
 
   ionViewDidLoad() {
+    this.atualizarAt();
+    this.atualizarG();
+    this.atualizarEr();
+    this.atualizarMm();
+
+
 
   }
+
+  atualizarG() {
+    this.storage.get('geral').then((val) => {
+      this.valores.efiEquipamento = val.efiEquipamento;
+      this.valores.valorKWh = val.valorKWh;
+      this.valores.vazGas = val.vazGas;
+      this.valores.densidadeSol = val.densidadeSol;
+      console.log(val);
+    });
+  }
+
+  atualizarEr() {
+    this.storage.get('er').then((val) => {
+      this.er.cusEletrodo = val.cusEletrodo;
+      this.er.efiDeposicao = val.efiDeposicao;
+      this.er.velSolda = val.velSolda;
+      console.log(val);
+
+    });
+  }
+
+  atualizarMm() {
+    this.storage.get('mm').then((val) => {
+      this.mm.cusEletrodo = val.cusEletrodo;
+      this.mm.efiDeposicao = val.efiDeposicao;
+      console.log(val);
+
+
+    });
+  }
+  atualizarAt() {
+    this.storage.get('at').then((val) => {
+      this.at.cusEletrodo = val.cusEletrodo;
+      this.at.efiDeposicao = val.efiDeposicao;
+      console.log(val);
+
+
+    });
+  }
+
 }
 
 
